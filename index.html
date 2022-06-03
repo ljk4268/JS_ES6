@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
+
 <body>
-  
+
   <p id="hello">안녕</p>
   <button id="button">버튼</button>
 
   <script>
 
-    document.querySelector('#button').addEventListener('click', function(){
-      document.querySelector('#hello').innerHTML = '바보'
-    })
+  // 1. 그냥 쓰거나 일반 함수안에서 쓰면 윈도우 객체 출력
+
+    console.log(this) // {window} 출력
     
+      function 함수() {
+        console.log(this) 
+      }
+
+    함수() // {window} 출력
+
+
+  // 오브젝트 내 함수안에서 쓰면 그 함수가 가지고 있는 오브젝트 출력
+    let obj1 = { 
+      data: 'kim',
+      fun: function(){
+        console.log(this)
+    } 
+  }
+    obj1.fun() // obj 출력
+
+
+  // 이벤트리스터 안에서는 지금 이벤트가 동작하는 요소 출력
+
+    document.querySelector('#button').addEventListener('click',function(){
+      this; // (= e.currentTarget) 지금 이벤트가 동작하는 요소 출력
+    })
+
+
+  //
+
+    document.querySelector('#button').addEventListener('click', function () {
+
+      let arr = [1, 2, 3]
+      arr.forEach(function (a) {
+        console.log(this) //window객체 출력
+      })
+
+    })
+
+
+    let obj2 = {
+      names: ['kim', 'lee', 'park'],
+      func: function () {
+        console.log(this) // obj 출력
+        obj.names.forEach(function () {
+          console.log(this) // window객체 출력
+        })
+      }
+    }
+
+
+  // 화살표함수를 사용하는 경우 외부 this 값을 가지고옴 
+    let obj3 = {
+      names: ['kim', 'lee', 'park'],
+      func: function(){
+        console.log(this) // obj 출력
+        obj.names.forEach(()=>{
+          console.log(this) // obj 출력
+        })
+      }
+    }
   </script>
 
 </body>
+
 </html>
