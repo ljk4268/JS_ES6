@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    // 1. 변수의 Hoisting 현상 
+    // 변수의 선언을 변수 범위 맨 위로 끌고온다. 
+
+    function 함수(){
+      var 이름 = 'kim';
+    }
+
+    if(true){
+      let 이름 = 'Park';
+    }
+
+    var 나이 = 30; // 이렇게 변수를 만나면 선언부분을 강제로 맨 위로 끌어올림.
+
+
+    // 2. 변수 동시에 여러개 만들기 
+
+    var 나이;
+    var 이름;
+    var 성별;
+
+    var 나이, 이름, 성별; // 이렇게 여러개의 변수를 동시에 만들 수 있다. 
+
+
+    // 3. 전역변수 : 모든곳에서 쓸 수 있는 변수 
+
+    var 나이 = 20;
+
+    function 함수(){
+      console.log(나이); // 잘 출력됨
+    }
+
+    함수()
+
+    function 함수1(){
+      var 이름 = 'Lee'; // 이건 지역변수!
+    }
+
+    if(true){
+      let a = 1;
+      var b = 2;
+      if (true){
+        let b = 3;
+      }
+      console.log(b) // 2가 출력됨. 
+    }
+
+  </script>
+</body>
+</html>

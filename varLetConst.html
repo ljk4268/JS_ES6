@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 변수 키워드 :  var let const
+    // 변수 특징 :  선언 할당 범위
+    // var변수 : 재선언 재할당이 자유롭고 범위는 function이다. 
+    // let변수 : 재선언은 안됨 재할당은 자유롭고 범위는 function이다. 
+    // const변수 : 재선언 재할당 안됨 범위는 function이다. ( = 변하지 않는 값)
+
+    var 이름 = 'kim';
+    var 이름 = 'Park'; // 이렇게 재선언이 가능하다. 
+
+
+    // let 나이 = 30; 이건 에러가 남! 
+    // 재선언이 불가능! 
+
+    const 사람 = { 이름 : 'Kim', 나이 : 20};
+    사람.이름 = 'Park'; // 이렇게 변경은 가능! 재할당이 아니라서 가능! 
+
+    // 수정 불가능한 오브젝트를 만들고 싶다면? 
+    Object.freeze(사람);
+
+
+    // 변수 볌위에 대해 
+    // var 변수의 범위는 function.
+    // function안에서만 존재함. 
+
+    function 함수(){
+      var name = 'Lee';
+      name;
+    }
+
+    console.log(name); // function밖에서 호출해서 에러가 남. 
+
+
+    // let,const 변수의 범위는 모든 {}(=중괄호)
+
+    if(true){
+      let 이름 = 'Lee';
+    }
+
+
+
+  </script>
+</body>
+</html>
