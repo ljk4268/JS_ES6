@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    var pants = 1;
+    var socks = 100;
+
+    `바지${pants} 양말${socks}`;
+
+    function Dismant(문자들, 변수들1, 변수들2){
+      if(변수들1 == 0){
+        alert('바지 안팔아요' + 문자들[1] + 변수들2)
+      } else {
+        console.log(문자들[0] + 변수들1 + 문자들[1] + 변수들2)
+      }
+    }
+    Dismant`바지${pants} 양말${socks}`;
+
+
+
+
+
+
+  </script>
+</body>
+</html>

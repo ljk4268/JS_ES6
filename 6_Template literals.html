@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // @@ backquote 문자열의 장점!
+    //1. 엔터키 가능
+    //2. 중간중간 변수 넣기 쉬움
+    
+    var 변수 = '손흥민'
+    var 문자 = `안녕하세요 저는 ${변수} 입니다.`
+    
+
+    // backquote + 함수
+    // tagged literal
+    // `문자`를 해체분석할 수 있음. 
+    // 해체분석기 함수를 만들고 파라미터 2개 넣는다. 
+    // 1. 파라미터는 해체분석기 오른쪽에 있는 모든 문자들을 Array화 시켜줌
+    // 2. 또 변수를 모아줌. 
+
+    function 해체분석기(문자들, 변수들){
+      console.log(문자들)
+      console.log(변수들)
+    }
+    해체분석기`안녕하세요 저는  ${변수} 입니다.`
+
+    //tagged literal 사용 예시)
+    // 1. 글자의 순서를 변경하고 싶을 때
+
+    function 해체분석기2(문자들, 변수들){
+      console.log(문자들[1] + 변수들 + 문자들[0])
+
+    }
+    해체분석기2`안녕하세요 ${변수} 입니다.`
+
+    
+
+    
+  </script>
+</body>
+</html>
