@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>default parameter/arguments</title>
+</head>
+<body>
+  <script>
+
+    // 함수의 default 파라미터
+    // function add(a, b = 10)
+    // 파라미터 b 자리에 아무것도 안 넣을 경우 디폴트값으로 10을 넣어주세요! 
+    // b자리에 파라미터 안 넣었을때만 발동함.
+    // 여러가지 등호, 수식을 넣을 수 있음. ex) function add(a, b = 2 * a)
+
+    function add(a, b = 2 * a){
+      console.log(a + b)
+    }
+
+    add(1)
+
+    // 함수의 default 파라미터로 함수도 넣을 수 있음 
+
+    function 임시함수(){
+      return 10
+    }
+
+    function add2(a, b = 임시함수()){
+      console.log(a + b)
+    }
+
+    add2(1)
+
+    // 함수의 arguments (=파라미터))
+    // 모든 파라미터를 한꺼번에 싸잡아서 다루고 싶을 경우 arguments 사용하면 된다. 
+    // arguments는 모든 파라미터를 []안에 넣은 변수
+
+    function func(a,b,c){
+      console.log(arguments[0]) // 첫째 파라미터
+      console.log(arguments[1]) // 둘째 파라미터
+      console.log(arguments[2]) // 셋째 파라미터
+    }
+    func(1,2,3)
+
+    function func2(a,b,c,d,e){
+      console.log(arguments) //
+    }
+    func2(2,3,4,5,6)
+    
+
+
+
+  </script>
+</body>
+</html>
