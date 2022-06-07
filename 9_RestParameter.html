@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rest 파라미터</title>
+</head>
+
+<body>
+  <script>
+
+    //rest 파라미터
+    // 파라미터 자리에 ... 쓰면됨. 
+    // '여기 뒤에 있는 모든 파라미터' 라는 뜻
+    // 이 자리에 오는 모든 파라미터를 []에 보관해줌 
+    // a와 b 다음에 오는 파라미터들을 []에 담아주세요! 라는 의미. 
+    function func(a,b, ...rest) {
+      console.log(rest)
+      
+    }
+    func(1,2,3,4,5,6,7)
+
+    function func2(...rest){
+      for(let i=0; i < rest.length; i++){
+        console.log(rest[i])
+      }
+      
+    }
+    func2(1,2,3,4)
+
+    // ...rest 파라미터 주의점
+    // 1. 함수 파라미터 자리의 가장 뒤에 써야함. 
+
+  </script>
+</body>
+
+</html>
