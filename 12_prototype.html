@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체지향2. prototype</title>
+</head>
+<body>
+  <script>
+    // prototype은 유전자. 
+    // constructor를 만들면 prototype이라는 공간이 생긴다. 
+
+    function Student(name, age){
+      this.name = name;
+      this.age = age;
+      this.sayHi = function(){
+        console.log(`안녕하세요 ${this.name} 입니다. `)
+      }
+    }
+
+    // Student라는 constructor에 gender라는 키와 해당 값을 부여해줌. 
+    // 그러면 constructor를 통해 만들어진 자식 객체들에서도 해당 키를 가져올 수 있음. 
+    Student.prototype.gender = '남';
+
+    let person1 = new Student('Park');
+    let person2 = new Student('Kim');
+
+    console.log(person1.gender)
+
+    // prototype의 동작원리 
+    // 아래처럼 person1.name;을 출력할 때 자바스크립트는 person1이 name이라는 key를 가지고 있는지 확인해봄. 
+    // 있으면 출력해줌. 
+
+    person1.name;
+    
+    // 아래 코드의 경우 자바스크립트는
+    // 1. person1이 직접 gender을 가지고 있는지 확인함. 
+    // 2. 없다는걸 확인하면  
+    // 3. person1의 부모요소가 gender를 가지고 있는지 확인함. 
+    // 4. 부모요소에 있으니까 값을 출력해줌. 
+
+    person1.gender;
+
+
+    let 부모 = {name:'Kim'};
+    let 자식 = {};
+    자식.__proto__ = 부모;
+    console.log(자식.name)
+  </script>
+</body>
+</html>
