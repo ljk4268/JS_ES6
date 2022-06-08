@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체지향4. ES6방식으로 안쉽게 구현하는 상속기능 (class)</title>
+</head>
+<body>
+  <script>
+
+// 상속기능 구현하는 ES6 방법 : class
+
+    class Person {
+      constructor(){
+        this.name = 'Kim';
+        // this.sayHi = function(){ console.log('hello')}
+        // 자식도 직접 함수를 가지게 하고 싶을땐 여기다가 쓰고 
+        // 모든 자식들이 다같이 쓸 수 있는 함수가 만들어지는거임. 
+      }
+      sayHi(){
+        console.log('hello')
+      } //  그냥 부모 prototype에 추가하고 싶으면 여기다가 쓰면 됨. 
+    }
+
+
+    let child = new Person();
+
+    
+
+
+
+  </script>
+</body>
+</html>

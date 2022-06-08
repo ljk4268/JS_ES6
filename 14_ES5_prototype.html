@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // prototype을 쓰지 않고도 상속기능을 구현하는 방법 
+    // ES5 / ES6 각각의 방법이 있다. 
+
+    // ES5 방법
+    // 부모가 가진 name age를 그대로 물려받은 자식 객체를 만들고 싶으면?  
+    // Object.create(물려받을 부모 object);
+    
+    let 부모 = {name : 'Kim', age : 50};
+
+    let 자식 = Object.create(부모); 
+
+    console.log(자식)
+    // 출력하면 빈 객체가 나옴 ( = {} )
+    //  prototype을 부모로 해달라는 의미이지 
+    // 값을 부여한건 아니니까 빈 객체가 나오나봄 
+    // 내 유전자는 변수 부모로 해주세요 라는 의미.
+    
+    console.log(자식.name) // 출력값 : 'Kim'
+    // prototype 작동원리 생각하면 됨. 
+    // 부모가 변수 부모이니까 변수 부모가 가지고 있는 name 값 갖고옴
+
+    // 자식 객체의 값을 변경하고 싶으면 아래처럼 쓰면 됨. 
+    자식.age = 20
+
+    // 자식의 자식을 만들고 싶다면 아래처럼~ 
+    let 손자 = Object.create(자식); 
+    
+    
+
+
+  </script>
+</body>
+</html>
