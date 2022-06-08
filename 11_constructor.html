@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object 생성기계인 constructor</title>
+</head>
+<body>
+  <script>
+    // constructor 문법의 용도
+
+    // 비슷한 person 객체를 여러개 만드려면?!
+    let person = { name : 'Kim', age : 15 }
+
+    // constructor 쓰면되는데 
+    // 함수를 쓰고 함수이름은 맨 첫글자를 대문자로!
+    // this 키워드를 써야함. 
+    // this는 새로 생성되는 object를 뜻한다. (=인스턴스)
+    // this.name >> key값이 됨. 
+
+    function Student(){
+      this.name = 'Kim';
+      this.age = 15;
+    }
+
+    // 그 다음 new 키워드를 써서 객체 생성을 하면 됨. 
+    new Student();
+
+    // 콘솔창에 person1,person2을 출력하면 
+    // {name: 'Kim', age: 15} 이 나옴. 
+    let person1 = new Student();
+    let person2 = new Student();
+
+
+    // Q. Student로 생성되는 객체에 함수를 추가하고 싶다면?
+    
+    function Student1(){
+      this.name = 'Kim';
+      this.age = 15;
+      this.sayHi = function(){
+        console.log(`안녕하세요 ${this.name} 입니다. `)
+      }
+    }
+
+    let person3 = new Student1();
+    let person4 = new Student1();
+
+    person3.sayHi() // 출력값 :  안녕하세요 Kim 입니다. 
+
+
+     // Q.학생들 이름을 다 다르게 출력하고 싶으면요?
+     // 파라미터 문법을 쓰면 됩니다~ 
+
+    function Student2(name, age){
+      this.name = name;
+      this.age = age;
+      this.sayHi = function(){
+        console.log(`안녕하세요 ${this.name} 입니다. `)
+      }
+    }
+
+    let person5 = new Student2('Lee', 18);
+    let person6 = new Student2('Park', 15);
+
+    // 연습문제
+    // 간단 연습문제 : 쇼핑몰에 쓸 상품데이터를 오브젝트로 여러개 만들고 싶습니다. 
+    // var product1 = { name : 'shirts', price : 50000 };
+    // var product2 = { name : 'pants', price : 60000 };
+
+
+    // Q1. 위처럼 생긴 상품오브젝트들을 뽑아낼 수 있는 constructor를 제작해보세요.
+
+    function Product(name,price){
+      this.name = name;
+      this.price = price;
+    }
+
+    let product1 = new Product('shirts',50000);
+    let product2 = new Product('pants',60000);
+
+    console.log( '첫번째 상품', product1)
+    console.log( '두번째 상품', product2)
+
+    // Q2. 상품마다 부가세() 라는 내부 함수를 실행하면 콘솔창에 상품가격 * 10% 만큼의 부가세금액이 출력되도록 하고 싶으면
+    // constructor를 어떻게 수정해야할까요?
+
+    function Product1(name,price){
+      this.name = name;
+      this.price = price;
+      this.부가세 = function(){
+        return this.price * 0.01
+      }
+    }
+
+    let product3 = new Product1('shirts',50000);
+    let product4 = new Product1('pants',60000);
+
+    console.log( '첫번째 상품', product3.부가세())
+    console.log( '두번째 상품', product4.부가세())
+    
+
+
+
+
+  </script>
+</body>
+</html>
