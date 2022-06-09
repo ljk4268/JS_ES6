@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Destructuring 문법</title>
+</head>
+<body>
+  <script>
+
+    // array데이터를 전부 변수에 담으려면? 
+
+    let arr = [2,3,4];
+
+    // a,b,c라는 변수를 만드는데 2,3,4라는 값을 넣어달라는 의미. 
+    // 모양만 맞춰 변수를 선언하면 변수가 생긴다. 
+
+    let [a,b,c] = [2,3,4];
+
+    console.log(a)
+    console.log(b)
+    console.log(c)
+
+    // array destructuring할 때 몇개를 빼먹는다면? 
+    // 등호로 기본값 지정 가능하다. 
+
+    let arr1 = [2,3,4];
+
+    // 변수 v 자리에 아무것도 지정하지 않아도 10이라는 값이 디폴트로 지정된다. 
+    let [z,x,v = 10] = [2,3]
+
+    // object데이터를 꺼내 변수에 담으려면? 
+
+    let obj = { name : 'Kim', age : 30 }
+
+    // let name = obj.name;
+    // let age = obj.age;
+
+    // 위의 코드를 좀더 직관적으로! 
+    // 변수명을 key명과 똑같이 써야한다. 
+
+    let {name, age} = { name : 'Kim', age : 30 }
+    // let {name, age = 31} = { name : 'Kim' }
+    // age = 31처럼 기본값 지정가능
+
+
+
+    // 변수를 object에 집어넣고 싶은 경우 
+
+    let name1 = 'Kim'
+    let age1 = 30;
+
+
+    // let obj1 = {name : name1, age : age1}
+    let obj1 = {name1, age1} // 위 코드의 축소판임/.
+
+
+    // 함수 파라미터 만들 때도 destructuring문법 사용가능 
+    // object데이터들을 파라미터로 만들고 싶은 경우 
+
+    let obj2 = {name: 'Kim', age: 30};
+
+    function func( {name,age} ){
+      console.log(name)
+      console.log(age)
+    }
+
+    func({name: 'Kim', age: 30})
+
+     // 예제 2가지 
+     let 신체정보 = {
+        body: {
+          height: 190,
+          weight: 70
+        },
+        size: ["상의 Large", "바지 30인치"],
+      };
+
+
+
+  </script>
+</body>
+</html>
