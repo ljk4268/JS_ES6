@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>getter, setter 대체 왜 쓰는지 알아보기</title>
+</head>
+<body>
+  <script>
+
+    // age라는 자료를 꺼내고 싶으면?
+    // 자료를 꺼내는 법을 만들어 꺼냅니다. (유행하는 잡기술)
+    // 예를들면 내년 age를 알고 싶음 
+
+    let 사람 = {
+      name : 'Park',
+      age : 30,
+      get nextAge(){
+        return this.age + 1;
+      },
+      set setAge(나이){ // age가 20으로 변경되는 함수 
+        
+        this.age = parseInt(나이); // parseInt는 정수를 변환해주는 함수
+      }
+    }
+
+    사람.nextAge(); // 사람.age + 1; 이랑 같은 코드임. 
+
+
+    // 함수를 만들어 객체 데이터를 다루는 이유
+    // 1. 객체자료가 복잡할 떄 이득 
+    // 2. 객체자료 수정시  - 데이터 수정시 미리 검사 가능 
+
+    사람.setAge(20) // age가 20으로 변경되는 함수 
+
+
+    // 복잡한 소괄호 꼴보기 싫다면 
+    // set : 데이터를 변경하는 함수에 써야함. + 파라미터 1개 꼭 써야함
+    // get : 데이터를 꺼내쓰는 함수에 써야함. + return 이라는 키워드 꼭 필요
+
+
+
+      class 사람2 {
+        constructor(){
+          this.name = 'Park',
+          this.age = 20; 
+        }
+        get nextAge(){
+          return this.age + 1
+        }
+        set setAge(나이){
+          this.age = parseInt(나이);
+        }
+      }
+
+      let 사람1 = new 사람2();
+
+  </script>
+</body>
+</html>
