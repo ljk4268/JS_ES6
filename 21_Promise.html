@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6 Promise</title>
+</head>
+<body>
+  <script>
+
+// 프로미스는 성공 / 실패 판정 기계이다.
+// 1. 콜백함수 대신 예쁜 코드로 만들고 싶을 때
+// 2. 성공/실패의 경우에 맞춰서 각각 다른 코드 실행이 가능하다. 
+
+// 프로미스 만드는 방법 
+    let 프로미스 = new Promise(function(resolve, reject){
+      resolve(); // resolve가 실행되면 then이 실행이 된다. 
+      reject(); // reject가 실행되면 catch가 실행이 된다. 
+    }); 
+
+    프로미스.then(function(){ //프로미스가 성공일 경우 실행할 코드 
+
+    }).then(function(){ // then을 붙이면서 쓰면 되는 코드라 복잡하지 않음. 
+
+    }).catch(function(){ // 실패할 경우 코드 실행도 가능하다. 
+
+    })
+
+
+    // Promise 예시
+    // 어려운 연산이 끝나면 특정 코드를 실행하고 싶음 
+
+    let 프로미스1 = new Promise(function(resolve, reject){
+      let 어려운연산 = 1 + 1 ;
+      resolve();
+      // 1+1 연산 끝나면 resolve 함수 실행시켜 주세요! 
+    })
+
+    프로미스1.then(function(){
+      console.log('성공했어요!')
+    }).catch(function(){
+      console.log('실패했어요! ')
+    })
+
+    // Promise 예시 2
+    // 1초 후에 성공하는 Promise 그리고 성공시 특정코드를 실행하고 싶음. 
+
+    let 프로미스2 = new Promise(function(resolve, reject){
+      setTimeout(function(){
+        resolve();
+      }, 5000);
+    })
+
+    프로미스2.then(function(){
+      console.log('성공했어요!')
+    }).catch(function(){
+      console.log('실패했어요! ')
+    })
+
+    
+
+
+
+  </script>
+</body>
+</html>
