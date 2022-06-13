@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for in / for of 반복문과 enumerable, iterable 속성</title>
+</head>
+
+<body>
+  <script>
+    // 반복문은 이럴 때 사용한다.
+    // 1. 코드를 여러번 실행할 때 
+    // 2. Array, Object에서 자료 꺼낼 때 
+    // for ( let key in 오브젝트){} // for in 반복문 ( 오브젝트 전용 )
+
+    //for (let key of 오브젝트){} // for of 반복문 ( iterable 전용 )
+
+
+    // for in 반복문
+    // 1. enumerable 한 것만 반복해준다. ( 셀 수 있는 자료인지! )
+    // 2. 부모의 prototype도 반복해준다. 
+    // 3. Object 자료형에만 사용한다. 
+
+    class 부모 {
+
+    }
+    부모.prototype.name = 'Park'
+
+    let 오브젝트1 = new 부모()
+
+    for (let key in 오브젝트1) {
+      console.log(오브젝트1[key])
+      // 부모가 가진 name을 출력해준다. 
+      if (오브젝트1.hasOwnProperty(key)) {
+        console.log(오브젝트1[key])
+      }
+      // 내가 직접 가지고 있는 값만 반복시키고 싶다면 위와 같은 코드를 사용하면 된다. 
+    }
+
+    let 오브젝트 = {
+      name: 'Kim',
+      age: 30
+    }
+    Object.getOwnPropertyDescriptor(오브젝트, 'name')
+
+    for (let key in 오브젝트) {
+      console.log(오브젝트[key])
+      // 오브젝트.name
+      // 오브젝트['name']
+      // 위 코드들과 동일한 코드임. 
+    }
+
+
+    // for of 반복문 
+    // Array, 문자, argument, NodeList, Map, Set에서 사용한다. 
+    // iterable한 자료형에만 사용가능하다. 
+
+
+
+    let Arr = [2, 3, 4, 5]
+
+    for (let data of Arr) {
+      console.log(data)
+    }
+
+    // 글자도 가능~ 
+    for (let data of 'asdfdfe') {
+      console.log(data)
+    }
+
+
+    // let obj = {name1 : 'chair'}
+    
+
+    // if( isNaN(parseInt('name1'.slice(-1))) == false) {
+    //   let newValue = obj['name1']
+    //   let newKey = 'name1'.slice(0,-1)
+    //   obj[newKey] = newValue
+
+    //   delete obj['name1']; 
+    // }
+
+    // console.log(obj)
+
+    let products = [
+        {
+          name1 : 'chair',
+          price1 : 7000,
+        },
+        {
+          name2 : 'sofa',
+          price : 5000,
+        },
+        {
+          name1 : 'desk',
+          price3 : 9000,
+        },
+      ]; 
+
+    let newValue;
+    let newKey;
+
+    for (let item of products){
+      for ( let key in item){
+        if ( isNaN(parseInt(key.slice(-1))) == false) {
+          newValue = item[key];
+          newKey = key.slice(0, -1);
+          item[newKey] = newValue;
+          delete item[key];
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>
