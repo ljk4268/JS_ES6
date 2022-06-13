@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Components : 커스텀 HTML 태그 만들기</title>
+</head>
+<body>
+  <custom-input name="123"></custom-input>
+  <custom-input></custom-input>
+
+
+  <script>
+    // Web Components 브라우저 기본 기능임. 
+    // 웹개발을 잘하고 싶으면 브라우저 기능을 잘 알아야한다. 
+    // js문법은 도구일뿐
+
+    // <커스텀태그>로 길고 복잡한 HTML 축약하는 법 
+
+    class 클래스 extends HTMLElement {
+      connectedCallback(){ // 내가 만든 태그가 HTML에 장착될 때 실행할 코드 적는 곳 
+
+        this.innerHTML = `<label>이메일인풋이에요</label><br><input><br>`
+      }
+      static get observedAttributes(){
+        // name이라는 attribute 바뀌는지 감시해주세요
+        return ['name']
+      }
+      attributeChangedCallback(){
+        // 바뀌면 이거 실행해주세요 
+        console.log(this.getAttribute('name'))
+      }
+    }
+
+    customElements.define('custom-input', 클래스)
+;  </script>
+</body>
+</html>
