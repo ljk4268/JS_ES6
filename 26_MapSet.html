@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>매우 짧게 알아보는 Map, Set 자료형</title>
+</head>
+<body>
+  <script>
+    // key value를 저장하는 Map 자료형
+
+    // Map 자료형 만듣는 법
+    // 자료간의 연관성을 표현하기 위해 쓰는 Map 자료형
+
+    let person = new Map();
+    person.set('name', 'Kim'); 
+    person.set('age', 20); 
+    // {'name' => 'Kim'}이라는 객체가 저장됨.
+
+    // Map자료 꺼내는 법
+    person.get('age')
+
+    // Map자료 삭제하는 법
+    person.delete('age')
+
+    // Map자료 갯수 세는 법
+    person.size
+
+
+    for( let key of person.keys()){
+      console.log( key )
+    }
+
+
+    //Set 자료형 
+    // 중복자료를 허용하지 않는 Array 비슷한 것
+    let confirm = ['john', 'tom', 'andy', 'tom'];
+
+    
+    
+    let confirm2 = new Set(confirm) 
+    confirm = [...confirm2]
+
+
+    console.log(confirm)
+    console.log(confirm2)
+
+    
+
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
