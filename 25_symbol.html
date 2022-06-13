@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // Symbol 의 용도 
+    // Object 자료형의 비밀스런 key값
+
+    let sim = Symbol('설명')
+
+    let weight = Symbol('내 시크릿 몸무게임')
+
+    let height = Symbol('내 시크릿 키임')
+
+    let person = {name : 'Kim', [height] : 160}
+
+    // person.weight = 100; 
+    // person[weight] = 200;
+    // person[height] = 170;
+
+
+
+    // Symbol 의 특징1
+    // 설명이 같다고 같은 Symbol이 아님 
+    // Symbol 만들 때 마다 유니크한 Symbol이 생김
+
+    let a = Symbol('설명1');
+    let b = Symbol('설명1');
+
+    // a === b : false
+    // a == b : false
+
+
+    // Symbol 의 특징2
+    // 전역 변수같은 전역 Symbol
+    // 같은 설명을 가지고 있는 심볼이 위에 이미 있으면 기존 심복을 복붙해줌
+
+    let c = Symbol.for('설명1');
+    let d = Symbol.for('설명1'); // let d = c 랑 같은 코드 
+
+
+    // Symbol 의 특징3
+    // 기본 내장 Symbol들
+
+
+    let arr = [2,3,4]
+    arr[Symbol.iterator] // 배열이 만들어지면 자바스크립트에서 기본적으로 넣어주는 심볼함수인듯. 
+
+
+
+
+    for (let key in person) {
+      console.log(person[key])
+      // 이러면 Symbol로 저장한 key는 나오지 않음. 
+    }
+
+
+  </script>
+</body>
+</html>
