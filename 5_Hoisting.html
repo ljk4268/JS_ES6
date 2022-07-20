@@ -11,6 +11,7 @@
 
     // 1. 변수의 Hoisting 현상 
     // 변수의 선언을 변수 범위 맨 위로 끌고온다. 
+    console.log(name, address)
 
     function 함수(){
       var 이름 = 'kim';
@@ -21,6 +22,9 @@
     }
 
     var 나이 = 30; // 이렇게 변수를 만나면 선언부분을 강제로 맨 위로 끌어올림.
+
+    let name = 'kim';
+    const address = 'seoul';
 
 
     // 2. 변수 동시에 여러개 만들기 
