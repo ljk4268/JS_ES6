@@ -25,23 +25,24 @@
     var b = ['you', 'are'];
 
     var c = function(a,b){
-      console.log([[...a],...[...b]][1])
+      console.log([...[...b]])
     }
 
     c(a,b);
+  
 
     // 문제 3. 
     // 출력값 : 9
 
     function 함수(a = 5, b = a * 2 ){
       console.log(a + b);
-      return 10
+      return 10;
     }
-    함수(3);
+    console.log( 함수(3) ) ;
 
     // 문자 4.
     // 출력값 : 15
-
+    
     function 함수(a = 5, b = a * 2 ){
       console.log(a + b);
     }
@@ -89,6 +90,7 @@
     function countLitters(x){ // 문자열 x (ex> 'aabababa') 를 입력받음 
       var result = {}; // 빈객체 생성 ! 각 문자마다 개수 세는용 {'a' : 4 , 'b':3} 이런식
       [...x].forEach(function(a){ // 문자열 x를 [...x] 로 쓰면 배열형태로 변환이 쉽게 되나봄! foreach로 하나씩 꺼내기 , 안에 function 만듬 문자열 하나씩 파라미터로 전달
+        console.log(a)
         if(result[a] > 0){ // a(문자 하나) 가 이미 result 객체에 있으면(0보다 크면) 
           result[a] = result[a] +1; // +1 해줌!
         } else { // 문자 a가 처음 받아진거면 객체안에 없으므로 ! 객체안에 문자a를 키값으로 값 1 할당!
@@ -100,6 +102,10 @@
 
     countLitters('aacbb')
 
+    result1 = {};
+    let name;
+    result1[name] = 1;
+    console.log(result1)
 
 
   </script>
