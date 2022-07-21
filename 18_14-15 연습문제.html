@@ -99,6 +99,36 @@
         data.setterfunc(1,2,3,4,5)
         console.log(data)
 
+
+    // 1. 
+    class Dogs{
+      constructor(type, color){
+        this.type = type,
+        this.color = color
+      }
+      한살먹기(){
+        if( this instanceof Cat) {
+          this.age ++
+        }
+      }
+    }
+
+    let Dog1 = new Dogs('말티즈', 'white');
+    let Dog2 = new Dogs('진돗개', 'brown');
+
+
+    // 2.
+
+    class Cats extends Dogs{
+      constructor(type, color, age){
+        super(type,color)
+        this.age = age
+      }
+    }
+
+    let Cat1 = new Cats('코숏', 'white', 5)
+    let Cat2 = new Cats('러시안블루', 'brown', 2)
+
   </script>
 </body>
 </html>
