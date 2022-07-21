@@ -11,20 +11,36 @@
 
 // 상속기능 구현하는 ES6 방법 : class
 
-    class Person {
+    // class Person {
+    //   constructor(){
+    //     this.name = 'Kim';
+    //     // this.sayHi = function(){ console.log('hello')}
+    //     // 자식도 직접 함수를 가지게 하고 싶을땐 여기다가 쓰고 
+    //     // 모든 자식들이 다같이 쓸 수 있는 함수가 만들어지는거임. 
+    //   }
+    //   sayHi(){
+    //     console.log('hello')
+    //   } //  그냥 부모 prototype에 추가하고 싶으면 여기다가 쓰면 됨. 
+    // }
+
+
+    // let child = new Person();
+
+    class 부모 {
       constructor(){
         this.name = 'Kim';
-        // this.sayHi = function(){ console.log('hello')}
-        // 자식도 직접 함수를 가지게 하고 싶을땐 여기다가 쓰고 
-        // 모든 자식들이 다같이 쓸 수 있는 함수가 만들어지는거임. 
-      }
-      sayHi(){
-        console.log('hello')
-      } //  그냥 부모 prototype에 추가하고 싶으면 여기다가 쓰면 됨. 
+        // this.sayHi = function(){
+        //   console.log('hello')
+        // }
+        }
+        sayHi(){
+          console.log('hello')
+        }
     }
 
+    부모.prototype.sayHello = function(){}
 
-    let child = new Person();
+    let 자식 = new 부모();
 
     
 
