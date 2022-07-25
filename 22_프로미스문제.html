@@ -13,50 +13,18 @@
   <script>
 
     let 프로미스 = new Promise(function(resolve, reject){
-      $.get('https://codingapple1.github.io/hello.txt')
-      .done(function(data){resolve(data)});
+      let text = $.get('https://codingapple1.github.io/hello.txt')
+      resolve(text)
     })
-      
 
     프로미스.then(function(result){
       console.log(result)
-      return new Promise(function(resolve, reject){
-        $.get('https://codingapple1.github.io/hello2.txt')
-      .done(function(data){resolve(data)});
-      })
-    }).then(function(result){
-      console.log(result)
+    }).catch(function(error){
+      console.log(error)
     })
 
 
-
-
-
-
-
-
-
-
-
-
-    // let imgLoaidng = new Promise(function(resolve, reject){
-
-    //   let img = document.querySelector('#test');
-    
-    //   img.addEventListener('load',function(){
-    //     resolve();
-    //   })
-    //   img.addEventListener('error',function(){
-    //     reject();
-    //   })
-
-    // })
-
-    // imgLoaidng.then(function(){
-    //   console.log('이미지로딩 성공')
-    // }).catch(function(){
-    //   console.log('이미지로딩 실패')
-    // })
+  
 
     
 
